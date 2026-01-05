@@ -14,7 +14,7 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization'],
 }))
 
-const port = 5000;
+//const port = 5000;
 
 app.use(express.json());
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -264,6 +264,5 @@ app.patch('/notes/:noteId', authenticate, async (req, res) => {
 
 
 
-app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-})
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
